@@ -15,5 +15,10 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
+# For the dummy app
+group :development, :test do
+  gem 'puma'
+end
+
 # gem 'killbill-client', :git => 'https://github.com/killbill/killbill-client-ruby.git', :branch => 'work-for-release-0.21.x'
 # gem 'killbill-client', '3.2.0'
