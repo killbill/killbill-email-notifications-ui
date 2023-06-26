@@ -9,10 +9,11 @@ Kill Bill compatibility
 
 | Kenui version | Kill Bill version |
 |--------------:|------------------:|
-|         0.1.x |            0.18.z |
-|         1.x.y |            0.20.z |
-|         2.x.y |            0.22.z |
-|         3.x.y |            0.24.z |
+|         0.1.x |            0.18.z (Rails 5) |
+|         1.x.y |            0.20.z (Rails 5) |
+|         2.0.y |            0.22.z (Rails 5) |
+|         2.1.y |            0.24.z (Rails 6) |
+|         3.x.y |            0.24.z (Rails 7) |
 
 Getting Started
 ---------------
