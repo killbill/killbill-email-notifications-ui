@@ -7,7 +7,7 @@
 #
 # See also https://github.com/carlhuda/bundler/issues/49
 require 'jquery-rails'
-require 'killbill-assets-ui'
+require 'killbill_assets_ui'
 require 'font-awesome-rails'
 require 'killbill_client'
 
