@@ -51,7 +51,11 @@
 
             var events = (e.relatedTarget.dataset['events']).split(',');
             $.each( events, function( index, val ) {
-                $("#"+val.trim()).prop('checked',true);
+                var trimmedVal = val.trim();
+                if (trimmedVal) {
+                    var selector = "#" + trimmedVal;
+                    $(selector).prop('checked', true);
+                }
             });
         });
 
