@@ -38,6 +38,7 @@
 
 <%= javascript_tag do %>
     $(document).ready(function() {
+      $('#accounts-table_length').hide();
       var table = $('#accounts-table').DataTable({
         "pagingType": "simple",
         "language": {
@@ -56,5 +57,8 @@
         ]
       });
 
+      table.one('draw', function() {
+        $('#accounts-table_length').show();
+      });
     });
 <% end %>

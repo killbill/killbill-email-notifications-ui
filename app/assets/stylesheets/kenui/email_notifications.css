@@ -208,6 +208,18 @@ label.capitalize {
   margin-top: -2.75rem !important;
 }
 
+#accounts-table_length {
+  display: none;
+}
+
+.email-notifications-index #accounts-table th:first-of-type {
+  padding-left: 0.75rem !important;
+}
+
+.email-notifications-index #accounts-table td a {
+  padding: 0 !important;
+}
+
 .email-notifications-index #accounts-table_filter input {
   width: 20rem;
   height: 2.2rem;
@@ -226,3 +238,4 @@ label.capitalize {
   outline: none;
   box-shadow: 0;
 }
+
