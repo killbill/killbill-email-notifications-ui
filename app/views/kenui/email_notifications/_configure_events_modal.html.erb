@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class='form-group d-flex'>
-            <%= f.label 'Configured Tenants', :class => 'col-sm-3 control-label' %>
+            <%= f.label 'Configured events', :class => 'col-sm-3 control-label' %>
             <div id="events">
 
             </div>
@@ -81,11 +81,12 @@
                 $(elem).prop('checked',false);
             });
 
-            var events = (e.relatedTarget.dataset['events']).split(',');
+            var eventsData = e.relatedTarget.dataset['events'] || '';
+            var events = eventsData.split(',');
             $.each( events, function( index, val ) {
                 var trimmedVal = val.trim();
                 if (trimmedVal) {
-                    var selector = "#" + trimmedVal;
+                    var selector = 'input[type="checkbox"][value="' + trimmedVal.replace(/"/g, '\\"') + '"]';
                     $(selector).prop('checked', true);
                 }
             });
