@@ -66,8 +66,10 @@ module Kenui
     def set_configuration
       configuration = params.require(:configuration)
 
+      event_types = Array(configuration[:event_types]).reject(&:blank?)
+
       is_success, message = Kenui::EmailNotificationService.set_configuration_per_account(configuration[:account_id],
-                                                                                          configuration[:event_types],
+                                                                                          event_types,
                                                                                           'kenui', nil, nil,
                                                                                           options_for_klient)
 

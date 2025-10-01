@@ -200,8 +200,8 @@ label.capitalize {
   font-size: 0.875rem !important;
   padding: 1rem 0.5rem !important;
   color: #535862 !important;
-  text-transform: capitalize !important;
   text-decoration: none !important;
+  white-space: wrap;
 }
 
 .email-notifications-index #accounts-table_filter {
