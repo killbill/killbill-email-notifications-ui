@@ -86,27 +86,38 @@
             $.each( events, function( index, val ) {
                 var trimmedVal = val.trim();
                 if (trimmedVal) {
-                    var selector = 'input[type="checkbox"][value="' + trimmedVal.replace(/"/g, '\\"') + '"]';
-                    $(selector).prop('checked', true);
+                    $('#configureEmailNotification').find('input[type="checkbox"][value]').each(function() {
+                        if ($(this).attr('value') === trimmedVal) {
+                            $(this).prop('checked', true);
+                            return false;
+                        }
+                    });
                 }
             });
         });
 
         function getEventsToConsider() {
           $.getJSON("<%= email_notification_events_to_consider_path %>", function(response) {
-            var events = [];
+            var $eventsContainer = $("#events");
+            $eventsContainer.empty();
+            
             $.each(response.data, function(index, val) {
               const safeId = 'event_' + index;
 
-              events.push(
-                '<div class="form-group d-flex align-items-center gap-2 mb-2">' +
-                  '<input type="checkbox" value="' + val + '" name="configuration[event_types][]" id="' + safeId + '">' +
-                  '<label class="capitalize mb-0" for="' + safeId + '">' + val + '</label>' +
-                '</div>'
-              );
-            });
+              var $formGroup = $('<div>').addClass('form-group d-flex align-items-center gap-2 mb-2');
+              var $checkbox = $('<input>')
+                .attr('type', 'checkbox')
+                .attr('value', val)
+                .attr('name', 'configuration[event_types][]')
+                .attr('id', safeId);
+              var $label = $('<label>')
+                .addClass('capitalize mb-0')
+                .attr('for', safeId)
+                .text(val);
 
-            $("#events").html(events.join(""));
+              $formGroup.append($checkbox).append($label);
+              $eventsContainer.append($formGroup);
+            });
           });
         }
 
