@@ -79,6 +79,9 @@ module Kenui
         flash[:error] = message
       end
       redirect_to email_notifications_path
+    rescue StandardError => e
+      flash[:error] = e.message
+      redirect_to email_notifications_path
     end
   end
 end

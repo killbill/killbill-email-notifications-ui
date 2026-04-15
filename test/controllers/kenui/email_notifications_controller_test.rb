@@ -13,15 +13,15 @@ module Kenui
 
     test 'should set configuration' do
       account_id = SecureRandom.uuid.to_s
-      configuration = { account_id:,
+      configuration = { account_id: account_id,
                         event_types: %w[INVOICE_NOTIFICATION INVOICE_CREATION] }
 
-      post email_notifications_configuration_path, params: { configuration: }
+      post email_notifications_configuration_path, params: { configuration: configuration }
       follow_redirect!
       assert_equal email_notifications_path, path
       assert_equal "Email notifications for account #{account_id} was successfully updated", flash[:notice]
 
-      get email_notifications_get_configuration_path, as: :json, params: { account_id: }
+      get email_notifications_get_configuration_path, as: :json, params: { account_id: account_id }
       assert_response :success
       json = response.parsed_body
       assert_equal(2, json['data'].size)
