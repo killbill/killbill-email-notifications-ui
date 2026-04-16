@@ -23,7 +23,7 @@ module Kenui
 
       get email_notifications_get_configuration_path, as: :json, params: { account_id: account_id }
       assert_response :success
-      json = JSON.parse(response.body)
+      json = response.parsed_body
       assert_equal(2, json['data'].size)
       assert_equal(account_id, json['data'][0]['kbAccountId'])
     end
